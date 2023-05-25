@@ -1,0 +1,22 @@
+version: "3"
+services:
+  onlineshop:
+    container_name: onlineapp
+    image: app
+    restart: always
+    build: .
+    ports:
+      - 9090:9899
+    environment:
+      MYSQL_HOST: mysqldb1
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL-PORT: 3306
+  mysqldb:
+    container_name: mysqldb1
+    image: mysql
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_DATABASE: test
